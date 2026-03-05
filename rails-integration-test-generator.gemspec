@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.author = 'Patrick McSweeny'
   s.email = 'patmcsweeny@gmail.com'
   s.files = Dir['{lib}/**/*', 'README.md', 'LICENSE']
-  s.required_ruby_version = '>= 3.0.0'
+  s.required_ruby_version = '>= 2.6.0'
   s.license = 'MIT'
 
   s.add_runtime_dependency 'railties', '>= 7.0'
