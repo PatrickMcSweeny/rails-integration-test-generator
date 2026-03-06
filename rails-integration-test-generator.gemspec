@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = 'rails-integration-test-generator'
-  s.version = '0.1.0'
+  s.version = '0.1.1'
   s.summary = 'Generates integration test instead of controller tests'
   s.description = 'Overrides rails controller generator to generate an integration test instead of a controller test'
   s.author = 'Patrick McSweeny'
@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
   s.files = Dir['{lib}/**/*', 'README.md', 'LICENSE']
   s.required_ruby_version = '>= 2.7.0'
   s.license = 'MIT'
+  s.homepage = 'https://github.com/PatrickMcSweeny/rails-integration-test-generator'
 
   s.add_runtime_dependency 'railties', '>= 7.0', '<= 8.1'
 
