@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ControllerIntegrationTestUnit
+module IntegrationTestUnit
   class ControllerGenerator < Rails::Generators::NamedBase # :nodoc:
     source_root File.expand_path('templates', __dir__)
 
