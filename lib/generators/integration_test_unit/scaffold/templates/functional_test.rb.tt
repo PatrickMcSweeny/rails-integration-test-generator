@@ -1,0 +1,54 @@
+require "test_helper"
+
+<% module_namespacing do -%>
+class <%= controller_class_name %>Test < ActionDispatch::IntegrationTest
+  <%- if mountable_engine? -%>
+  include Engine.routes.url_helpers
+
+  <%- end -%>
+  setup do
+    @<%= singular_table_name %> = <%= fixture_name %>(:one)
+  end
+
+  test "sindex" do
+    get <%= index_helper(type: :url) %>
+    assert_response :success
+  end
+
+  test "snew" do
+    get <%= new_helper %>
+    assert_response :success
+  end
+
+  test "create" do
+    assert_difference("<%= class_name %>.count") do
+      post <%= index_helper(type: :url) %>, params: { <%= "#{singular_table_name}: #{attributes_string}" %> }
+    end
+
+    assert_redirected_to <%= show_helper("#{class_name}.last") %>
+  end
+
+  test "show" do
+    get <%= show_helper %>
+    assert_response :success
+  end
+
+  test "edit" do
+    get <%= edit_helper %>
+    assert_response :success
+  end
+
+  test "update" do
+    patch <%= show_helper %>, params: { <%= "#{singular_table_name}: #{attributes_string}" %> }
+    assert_redirected_to <%= show_helper %>
+  end
+
+  test "destroy" do
+    assert_difference("<%= class_name %>.count", -1) do
+      delete <%= show_helper %>
+    end
+
+    assert_redirected_to <%= index_helper(type: :url) %>
+  end
+end
+<% end -%>
